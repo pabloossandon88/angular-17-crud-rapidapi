@@ -1,3 +1,9 @@
+# angular-17-crud-rapidapi
+
+Prueba para postulación, CRUD simple que trabaja con data de API->RapidApi para luego manejar los datos de forma temporal almacenandola en LocalStorage. Esta hecho con Angular 17 y Angular Material UI.
+
+
+
 # Angular17CrudRapidapi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
