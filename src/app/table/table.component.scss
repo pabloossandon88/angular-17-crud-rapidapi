@@ -1,0 +1,18 @@
+.full-width-table {
+  width: 100%;
+}
+
+.mat-column-actions{
+  text-align: right;
+}
+
+.mat-column-actions .mat-sort-header-container{
+  display: flex;
+  justify-content: end;
+}
+
+tr:hover{
+  background: rgb(248, 248, 248);
+}
+
+

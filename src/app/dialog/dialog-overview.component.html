@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Crear Nuevo {{data.name}}</h2>
+<mat-dialog-content>
+  <p>Titulo</p>
+  <mat-form-field>
+    <mat-label>label input</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Gracias</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
