@@ -3,7 +3,7 @@
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      <td mat-cell *matCellDef="let row">{{row.id}} {{dataSource.data.length}} </td>
     </ng-container>
 
     <!-- Image Column -->
@@ -30,10 +30,12 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
       <td mat-cell *matCellDef="let row">
-        <button mat-icon-button color="primary" aria-label="Example icon button with a heart icon">
+        <button (click)="editItem()" 
+        mat-icon-button color="primary" aria-label="">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <button (click)="deleteItem()"
+            mat-icon-button color="warn" aria-label="">
           <mat-icon>delete</mat-icon>
         </button>
         

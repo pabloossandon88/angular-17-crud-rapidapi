@@ -17,6 +17,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 export interface DialogData {
     animal: string;
     name: string;
+    species: string;
 }
 
 @Component({
@@ -42,5 +43,12 @@ export interface DialogData {
   
     onNoClick(): void {
       this.dialogRef.close();
+    }
+
+    addItem(name: any, species: any): void{
+      const dataTable = JSON.parse(localStorage.getItem('data') || '{}');
+      dataTable.push({name: name, species:species})
+      console.log(dataTable);
+      localStorage.setItem('data', JSON.stringify(dataTable) );
     }
   }

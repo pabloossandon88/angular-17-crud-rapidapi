@@ -30,17 +30,25 @@ export class TableComponent implements AfterViewInit {
   displayedColumns = ['id', 'image', 'name', 'specie', 'actions'];
 
   ngAfterViewInit(): void {
-    
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
     this.table.dataSource = [];
     const data = JSON.parse(localStorage.getItem('data') || '{}');
     if( data ){
       this.table.dataSource = JSON.parse(localStorage.getItem('data') || '{}');
     }
     
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    
+    
+    console.log(this.dataSource );
+    
+  }
 
-    
-    
+  editItem(){
+    alert('EDIT');
+  }
+
+  deleteItem(){
+    alert('DELETE');
   }
 }
