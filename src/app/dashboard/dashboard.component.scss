@@ -1,5 +1,8 @@
 .grid-container {
   margin: 20px;
+  @media only screen and (max-width: 768px) {
+    margin: 0px;
+  }
 }
 
 .dashboard-card {
@@ -18,6 +21,9 @@
 
 .dashboard-card-content {
   text-align: center;
+  @media only screen and (max-width: 768px) {
+    padding: 0 0;
+  }
 }
 
 section {
@@ -25,8 +31,36 @@ section {
   justify-content: space-between;
   padding: 20px;
 
+
+
   button{
     margin-left: 20px;
   }
 
+  @media only screen and (max-width: 768px) { 
+    justify-content: normal;
+  }
+  
+
 }
+
+
+.mat-grid-tile{
+  @media only screen and (max-width: 768px) { 
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 768px) { 
+
+  .mdc-data-table__cell, .mdc-data-table__header-cell{
+    padding: 0 0 0 0 !important;
+  }
+
+  .mdc-button__label{
+    font-size: 10px !important;
+  }
+
+}
+
+

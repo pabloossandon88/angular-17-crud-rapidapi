@@ -11,6 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { TableComponent } from '../table/table.component';
 import { DialogOverview } from '../dialog/dialog.overview.component';
+import { DataDisplayComponent } from '../data-display/data-display.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +26,8 @@ import { DialogOverview } from '../dialog/dialog.overview.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    TableComponent
+    TableComponent,
+    DataDisplayComponent
   ]
 })
 export class DashboardComponent {
@@ -35,12 +38,12 @@ export class DashboardComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
+          {  cols: 1, rows: 1 },
         ];
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
+        {  cols: 2, rows: 1 },
       ];
     })
   );
