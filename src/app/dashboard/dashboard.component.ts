@@ -11,7 +11,9 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { TableComponent } from '../table/table.component';
 import { DialogOverview } from '../dialog/dialog.overview.component';
-import { DataDisplayComponent } from '../data-display/data-display.component';
+//import { DataDisplayComponent } from '../data-display/data-display.component';
+
+import { ApiConnect } from '../services/api-connect.service';
 
 
 @Component({
@@ -26,8 +28,7 @@ import { DataDisplayComponent } from '../data-display/data-display.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    TableComponent,
-    DataDisplayComponent
+    TableComponent
   ]
 })
 export class DashboardComponent {
@@ -53,8 +54,8 @@ export class DashboardComponent {
   name: string = '';
   
   
-  constructor(public dialog: MatDialog) {
-    
+  constructor(public dialog: MatDialog, private apiConnect :  ApiConnect) {
+  
   }
 
   openDialog(): void {

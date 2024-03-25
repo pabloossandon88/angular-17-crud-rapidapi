@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { fromFetch } from 'rxjs/fetch';
+import { LocalStorageService } from '../services/local-storage.service';
 
 
 @Component({
@@ -12,6 +12,10 @@ import { fromFetch } from 'rxjs/fetch';
   styleUrl: './data-display.component.scss'
 })
 export class DataDisplayComponent implements OnInit{
+
+  constructor(private localStorageService: LocalStorageService) {
+    
+  }
 
   url = 'https://rickandmortyapi.com/api/character';
   
@@ -36,7 +40,7 @@ export class DataDisplayComponent implements OnInit{
     .subscribe((data: any) => {
       
       if(data.results){
-        localStorage.setItem('data', JSON.stringify(data.results) );
+        this.localStorageService.setItem('data', JSON.stringify(data.results) );
       }
       
 

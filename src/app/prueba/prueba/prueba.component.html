@@ -1,0 +1,15 @@
+<p>prueba works!</p>
+
+@if(characterResults$ | async; as resultObject){
+    <ul>
+        @for(item of resultObject.results; track item.name ){
+            <li>
+                {{item.name}}
+                <!--
+                <app-component-child [dataInfo]="item">
+                -->
+            </li>
+        }
+    </ul>
+}
+

@@ -5,6 +5,9 @@ import { MatSortModule, MatSort } from '@angular/material/sort';
 import { TableDataSource, TableItem } from './table-datasource';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogOverview } from '../dialog/dialog.overview.component';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-table',
@@ -21,6 +24,16 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class TableComponent implements AfterViewInit {
 
+  constructor(
+    public dialog: MatDialog, 
+    private localStorageService: LocalStorageService,
+    ) {
+
+          
+    
+  }
+  
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<TableItem>;
@@ -30,25 +43,29 @@ export class TableComponent implements AfterViewInit {
   displayedColumns = ['id', 'image', 'name', 'specie', 'actions'];
 
   ngAfterViewInit(): void {
-    this.table.dataSource = [];
-    const data = JSON.parse(localStorage.getItem('data') || '{}');
-    if( data ){
-      this.table.dataSource = JSON.parse(localStorage.getItem('data') || '{}');
-    }
-    
+    this.table.dataSource = JSON.parse( this.localStorageService.getItem('data') || '{}' );
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    
-    
-    console.log(this.dataSource );
-    
   }
 
   editItem(){
-    alert('EDIT');
+    this.openDialog()
   }
 
   deleteItem(){
-    alert('DELETE');
+    this.openDialog()
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverview, {
+      data: {
+        
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.animal = result;
+    });
   }
 }
